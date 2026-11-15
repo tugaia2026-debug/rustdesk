@@ -104,6 +104,7 @@ jobs:
           submodules: recursive
 
       - name: Bake TUGA server and key into hbb_common
+        shell: bash
         run: |
           python3 - <<'EOF'
           import io
