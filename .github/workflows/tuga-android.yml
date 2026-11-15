@@ -124,6 +124,20 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Bake TUGA server and key into hbb_common
+        run: |
+          python3 - <<'EOF'
+          import io
+          p = 'libs/hbb_common/src/config.rs'
+          s = io.open(p, encoding='utf-8').read()
+          assert '"rs-ny.rustdesk.com"' in s and 'OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=' in s
+          s = s.replace('"rs-ny.rustdesk.com"', '"62.210.207.98"')
+          s = s.replace('OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=', '30RtnX2nzuEKeFI2cVuDhRMDAsiigNEzYsUXKBqveR8=')
+          io.open(p, 'w', encoding='utf-8').write(s)
+          print('baked TUGA server + key')
+          EOF
+          grep -n 'RENDEZVOUS_SERVERS: &\[&str\]\|RS_PUB_KEY: &str' libs/hbb_common/src/config.rs
+
       - name: Check JNI natives are in ffi.FFI
         # Custom clients rename com.carriez.flutter_hbb; only ffi.FFI keeps its name.
         shell: bash
