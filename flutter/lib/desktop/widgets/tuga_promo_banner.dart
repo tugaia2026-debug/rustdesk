@@ -38,6 +38,8 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.public_rounded, 'Canais Locais Espanha — 4€ · mínimo 100 CNX'),
     _PromoItem(Icons.sports_soccer_rounded, 'DRM Portugal Vodafone — Full Sports HD/FHD'),
     _PromoItem(Icons.language_rounded, 'Canais Internacionais'),
+    _PromoItem(Icons.code_rounded,
+        'Criamos Aplicações ao Teu Gosto, do Zero! Preço a Combinar'),
   ];
   static const _messagesEn = <_PromoItem>[
     _PromoItem(Icons.live_tv_rounded, 'Local Source of Portuguese Channels'),
@@ -53,6 +55,8 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.public_rounded, 'Spain Local Channels — €4 · min. 100 CNX'),
     _PromoItem(Icons.sports_soccer_rounded, 'DRM Portugal Vodafone — Full Sports HD/FHD'),
     _PromoItem(Icons.language_rounded, 'International Channels'),
+    _PromoItem(Icons.code_rounded,
+        'We Build Custom Apps From Scratch! Price on Request'),
   ];
 
   int _index = 0;
