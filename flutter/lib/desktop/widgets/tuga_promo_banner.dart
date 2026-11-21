@@ -11,7 +11,8 @@ class _PromoItem {
 }
 
 /// TUGA XXTURNER promotional banner at the top of the desktop home page.
-/// Rotates through the messages; a tap opens the TUGA Telegram channel.
+/// Shows an IPTV-themed photo background, rotates through the messages,
+/// and opens the TUGA Telegram channel on tap.
 class TugaPromoBanner extends StatefulWidget {
   const TugaPromoBanner({Key? key}) : super(key: key);
 
@@ -56,97 +57,126 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
       child: GestureDetector(
         onTap: () => launchUrl(Uri.parse(_url)),
         child: Container(
-          height: 56,
+          height: 76,
           width: double.infinity,
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF06382A), Color(0xFF101418), Color(0xFF4A0D0D)],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ),
-            border: Border(bottom: BorderSide(color: _gold, width: 1.5)),
+            border: Border(bottom: BorderSide(color: _gold, width: 2)),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 14),
-          child: Row(
+          child: Stack(
+            fit: StackFit.expand,
             children: [
-              Container(
-                width: 34,
-                height: 34,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: _gold, width: 1.4),
-                  color: Colors.white.withOpacity(0.08),
-                ),
-                child: Icon(item.icon, color: const Color(0xFFF5D67B), size: 19),
+              Image.asset(
+                'assets/tuga_banner_bg.jpg',
+                fit: BoxFit.cover,
               ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 450),
-                  transitionBuilder: (child, animation) => FadeTransition(
-                    opacity: animation,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0, 0.35),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    ),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.black.withOpacity(0.80),
+                      Colors.black.withOpacity(0.45),
+                      Colors.black.withOpacity(0.68),
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                   ),
-                  child: Align(
-                    key: ValueKey(_index),
-                    alignment: Alignment.centerLeft,
-                    child: AutoSizeText(
-                      item.text,
-                      maxLines: 1,
-                      minFontSize: 11,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 0.4,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 46,
+                      height: 46,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: _gold, width: 1.6),
+                        color: Colors.black.withOpacity(0.35),
+                      ),
+                      child:
+                          Icon(item.icon, color: const Color(0xFFF5D67B), size: 25),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 450),
+                        transitionBuilder: (child, animation) => FadeTransition(
+                          opacity: animation,
+                          child: SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(0, 0.35),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: child,
+                          ),
+                        ),
+                        child: Align(
+                          key: ValueKey(_index),
+                          alignment: Alignment.centerLeft,
+                          child: AutoSizeText(
+                            item.text,
+                            maxLines: 1,
+                            minFontSize: 12,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 0.5,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  blurRadius: 6,
+                                  offset: Offset(0, 1),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: List.generate(_messages.length, (i) {
-                  final active = i == _index;
-                  return Container(
-                    width: active ? 16 : 6,
-                    height: 6,
-                    margin: const EdgeInsets.only(right: 4),
-                    decoration: BoxDecoration(
-                      color:
-                          active ? _gold : Colors.white.withOpacity(0.35),
-                      borderRadius: BorderRadius.circular(3),
+                    const SizedBox(width: 14),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: List.generate(_messages.length, (i) {
+                        final active = i == _index;
+                        return Container(
+                          width: active ? 18 : 7,
+                          height: 7,
+                          margin: const EdgeInsets.only(right: 4),
+                          decoration: BoxDecoration(
+                            color: active
+                                ? _gold
+                                : Colors.white.withOpacity(0.40),
+                            borderRadius: BorderRadius.circular(3.5),
+                          ),
+                        );
+                      }),
                     ),
-                  );
-                }),
-              ),
-              const SizedBox(width: 10),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF229ED9),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.send_rounded, color: Colors.white, size: 14),
-                    SizedBox(width: 6),
-                    Text(
-                      'Telegram',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12.5,
-                        fontWeight: FontWeight.w700,
+                    const SizedBox(width: 12),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 13, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF229ED9),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.send_rounded,
+                              color: Colors.white, size: 16),
+                          SizedBox(width: 7),
+                          Text(
+                            'Telegram',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
