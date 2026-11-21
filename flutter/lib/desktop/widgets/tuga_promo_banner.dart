@@ -28,14 +28,16 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.live_tv_rounded, 'Fonte Local de Canais Portugueses'),
     _PromoItem(Icons.movie_rounded, 'Fonte de VOD Portugueses'),
     _PromoItem(Icons.shield_rounded, 'DRM'),
-    _PromoItem(Icons.sync_rounded, 'Sincronizador de Conteúdo Automático'),
+    _PromoItem(Icons.sync_rounded,
+        'Sincronizador de Conteúdo Automático — Xtream Masters · XUI One · XUI 1.8 · Midnight Streamer'),
     _PromoItem(Icons.star_rounded, 'Pack 500 Canais Adultos'),
   ];
   static const _messagesEn = <_PromoItem>[
     _PromoItem(Icons.live_tv_rounded, 'Local Source of Portuguese Channels'),
     _PromoItem(Icons.movie_rounded, 'Portuguese VOD Source'),
     _PromoItem(Icons.shield_rounded, 'DRM'),
-    _PromoItem(Icons.sync_rounded, 'Automatic Content Synchronizer'),
+    _PromoItem(Icons.sync_rounded,
+        'Automatic Content Synchronizer — Xtream Masters · XUI One · XUI 1.8 · Midnight Streamer'),
     _PromoItem(Icons.star_rounded, '500 Adult Channels Pack'),
   ];
 
