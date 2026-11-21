@@ -40,6 +40,8 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.language_rounded, 'Canais Internacionais'),
     _PromoItem(Icons.code_rounded,
         'Criamos Aplicações ao Teu Gosto, do Zero! Preço a Combinar'),
+    _PromoItem(Icons.lock_rounded,
+        'Apenas Alugamos DRM — Não Vendemos Scripts nem Keys'),
   ];
   static const _messagesEn = <_PromoItem>[
     _PromoItem(Icons.live_tv_rounded, 'Local Source of Portuguese Channels'),
@@ -57,6 +59,8 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.language_rounded, 'International Channels'),
     _PromoItem(Icons.code_rounded,
         'We Build Custom Apps From Scratch! Price on Request'),
+    _PromoItem(Icons.lock_rounded,
+        "DRM Rental Only — We Don't Sell Scripts or Keys"),
   ];
 
   int _index = 0;
