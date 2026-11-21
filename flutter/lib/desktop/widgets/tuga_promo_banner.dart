@@ -31,6 +31,8 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.sync_rounded,
         'Sincronizador de Conteúdo Automático — Xtream Masters · XUI One · XUI 1.8 · Midnight Streamer'),
     _PromoItem(Icons.star_rounded, 'Pack 500 Canais Adultos'),
+    _PromoItem(Icons.storage_rounded,
+        'Venda de Servidores Offshore — 5GB 350€ · 10GB 450€'),
   ];
   static const _messagesEn = <_PromoItem>[
     _PromoItem(Icons.live_tv_rounded, 'Local Source of Portuguese Channels'),
@@ -39,6 +41,8 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.sync_rounded,
         'Automatic Content Synchronizer — Xtream Masters · XUI One · XUI 1.8 · Midnight Streamer'),
     _PromoItem(Icons.star_rounded, '500 Adult Channels Pack'),
+    _PromoItem(Icons.storage_rounded,
+        'Offshore Servers for Sale — 5GB €350 · 10GB €450'),
   ];
 
   int _index = 0;
