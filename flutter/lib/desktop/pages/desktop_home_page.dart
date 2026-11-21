@@ -74,6 +74,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
             ],
           ),
         ),
+        const TugaPromoBanner(english: true),
       ],
     ));
   }

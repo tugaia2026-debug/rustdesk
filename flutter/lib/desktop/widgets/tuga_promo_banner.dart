@@ -14,7 +14,8 @@ class _PromoItem {
 /// Shows an IPTV-themed photo background, rotates through the messages,
 /// and opens the TUGA Telegram channel on tap.
 class TugaPromoBanner extends StatefulWidget {
-  const TugaPromoBanner({Key? key}) : super(key: key);
+  final bool english;
+  const TugaPromoBanner({Key? key, this.english = false}) : super(key: key);
 
   @override
   State<TugaPromoBanner> createState() => _TugaPromoBannerState();
@@ -29,6 +30,13 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.shield_rounded, 'DRM'),
     _PromoItem(Icons.sync_rounded, 'Sincronizador de Conteúdo Automático'),
     _PromoItem(Icons.star_rounded, 'Pack 500 Canais Adultos'),
+  ];
+  static const _messagesEn = <_PromoItem>[
+    _PromoItem(Icons.live_tv_rounded, 'Local Source of Portuguese Channels'),
+    _PromoItem(Icons.movie_rounded, 'Portuguese VOD Source'),
+    _PromoItem(Icons.shield_rounded, 'DRM'),
+    _PromoItem(Icons.sync_rounded, 'Automatic Content Synchronizer'),
+    _PromoItem(Icons.star_rounded, '500 Adult Channels Pack'),
   ];
 
   int _index = 0;
@@ -51,7 +59,8 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
 
   @override
   Widget build(BuildContext context) {
-    final item = _messages[_index];
+    final messages = widget.english ? _messagesEn : _messages;
+    final item = messages[_index];
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -139,7 +148,7 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
                     const SizedBox(width: 14),
                     Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: List.generate(_messages.length, (i) {
+                      children: List.generate(messages.length, (i) {
                         final active = i == _index;
                         return Container(
                           width: active ? 18 : 7,
