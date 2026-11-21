@@ -34,6 +34,7 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.storage_rounded,
         'Venda de Servidores Offshore — 5GB 350€ · 10GB 450€'),
     _PromoItem(Icons.tv_rounded, 'Aplicação Smart TV Samsung & LG — 150€ cada DNS'),
+    _PromoItem(Icons.repeat_rounded, 'Restream — 2€ abaixo de 2 CNX · 1,50€ acima'),
   ];
   static const _messagesEn = <_PromoItem>[
     _PromoItem(Icons.live_tv_rounded, 'Local Source of Portuguese Channels'),
@@ -45,6 +46,7 @@ class _TugaPromoBannerState extends State<TugaPromoBanner> {
     _PromoItem(Icons.storage_rounded,
         'Offshore Servers for Sale — 5GB €350 · 10GB €450'),
     _PromoItem(Icons.tv_rounded, 'Smart TV App Samsung & LG — €150 per DNS'),
+    _PromoItem(Icons.repeat_rounded, 'Restream — €2 under 2 CNX · €1.50 above'),
   ];
 
   int _index = 0;
